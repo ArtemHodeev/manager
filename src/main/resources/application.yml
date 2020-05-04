@@ -11,3 +11,13 @@ spring:
     host: localhost
     username: admin
     password: 123
+  jpa:
+    database: postgresql
+    hibernate:
+      ddl-auto: validate
+    generate-ddl: true
+  datasource:
+    username: tweetme
+    password: 123
+    url: jdbc:postgresql://localhost:5433/tweetme
+    platform: postgres
