@@ -29,4 +29,21 @@ public class TweetService {
         }
         return savedTweet;
     }
+
+    public Tweet getById(Long id) {
+        return tweetRepository.findById(id).orElseGet(()->null);
+    }
+
+    public Tweet deleteById(Long id) {
+        Tweet tweet = getById(id);
+        String err = String.format("Tweet #%d does not exist", id);
+
+        if (tweet != null) {
+            tweetRepository.delete(tweet);
+        } else {
+            throw new IllegalArgumentException(err);
+        }
+
+        return tweet;
+    }
 }
