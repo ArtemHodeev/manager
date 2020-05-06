@@ -24,6 +24,7 @@ dependencies {
     implementation 'org.hibernate.validator:hibernate-validator-annotation-processor:6.1.4.Final'
     implementation 'org.apache.commons:commons-lang3:3.10'
     implementation 'org.projectlombok:lombok:1.18.12'
+    implementation 'com.fasterxml.jackson.datatype:jackson-datatype-jsr310:2.11.0'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }

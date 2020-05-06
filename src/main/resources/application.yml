@@ -11,6 +11,7 @@ spring:
     host: localhost
     username: admin
     password: 123
+
   jpa:
     database: postgresql
     hibernate:
@@ -21,3 +22,7 @@ spring:
     password: 123
     url: jdbc:postgresql://localhost:5433/tweetme
     platform: postgres
+
+messaging:
+  modifyQueue:
+    name: "modifyQueue"

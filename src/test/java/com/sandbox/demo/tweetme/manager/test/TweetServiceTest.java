@@ -11,6 +11,8 @@ import org.springframework.boot.test.context.TestConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.time.LocalDateTime;
+import java.time.Month;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -33,7 +35,22 @@ public class TweetServiceTest {
     TweetService tweetServiceTest;
 
     @Test
-    public void addNewTweetsTest() {
+    public void addNewTweetTest() {
+        LocalDateTime ldt = LocalDateTime.of(2020, Month.APRIL, 5,0,0);
+        Tweet t1 = new Tweet();
+
+        t1.setBody("First");
+        t1.setTweetType(TweetType.ORIGINAL);
+        t1.setCreationDate(ldt);
+
+        Tweet savedT1 = tweetServiceTest.updateTweet(t1);
+        assertThat(savedT1.getBody()).isEqualTo("First");
+        assertThat(savedT1.getTweetType()).isEqualTo(TweetType.ORIGINAL);
+        assertThat(savedT1.getCreationDate()).isEqualTo(ldt);
+    }
+
+    @Test
+    public void addMultipleNewTweetsTest() {
         Tweet t1 = new Tweet();
         Tweet t2 =  new Tweet();
 

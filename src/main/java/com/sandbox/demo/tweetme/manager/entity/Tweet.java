@@ -4,6 +4,7 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 @Entity
@@ -16,12 +17,15 @@ public class Tweet {
     @Id
     private Long id;
 
+    @NotNull
     @Column(name = "body")
     private String body;
 
+    @NotNull
     @Column(name = "creation_name")
     private LocalDateTime creationDate = LocalDateTime.now();
 
+    @NotNull
     @Column(name = "type")
     private TweetType tweetType;
 
